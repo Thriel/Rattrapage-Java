@@ -14,7 +14,7 @@ public class GameFrame extends JFrame implements ActionListener{
 	private static final long serialVersionUID = 1L;
 
 
-	public static final int FRAME_WIDTH = 1200, FRAME_HEIGHT = 800;
+	public static final int FRAME_WIDTH = 600, FRAME_HEIGHT = 400;
 
 	
 	public GamePanel gamePanel;
@@ -22,7 +22,7 @@ public class GameFrame extends JFrame implements ActionListener{
 	public GameFrame()
 	{
 		setSize(FRAME_WIDTH, FRAME_HEIGHT);
-		setTitle("Tron Java - Ivan CHABAN A1");
+		setTitle("Tron Java ");
 		setResizable(false);
 		
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

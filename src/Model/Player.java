@@ -13,7 +13,7 @@ public class Player {
 
 	private String name;
 	private int direction;
-	private LengthNode head;
+	private LengthNode Lightcycle;
 	private Color color;
 
 	public static int UP = 1, DOWN = 2, LEFT = 3, RIGHT = 4;
@@ -26,7 +26,7 @@ public class Player {
 		this.name = name;
 		this.direction = direction;
 		this.color = color;
-		head = new LengthNode(x, y, null);
+		Lightcycle = new LengthNode(x, y, null);
 	}
 
 	public String getName() {
@@ -45,8 +45,8 @@ public class Player {
 
 
 
-	public LengthNode getHead() {
-		return head;
+	public LengthNode getLightcycle() {
+		return Lightcycle;
 	}
 
 	public void step()
@@ -54,16 +54,16 @@ public class Player {
 		switch(direction)
 		{
 		case 1: 		//haut
-			head = new LengthNode(head.getX(), head.getY() - PIX_PER_STEP, head);
+			Lightcycle = new LengthNode(Lightcycle.getX(), Lightcycle.getY() - PIX_PER_STEP, Lightcycle);
 			break;
 		case 2: 		//bas
-			head = new LengthNode(head.getX(), head.getY() + PIX_PER_STEP, head);
+			Lightcycle = new LengthNode(Lightcycle.getX(), Lightcycle.getY() + PIX_PER_STEP, Lightcycle);
 			break;
 		case 3: 		//gauche
-			head = new LengthNode(head.getX() - PIX_PER_STEP, head.getY(), head);
+			Lightcycle = new LengthNode(Lightcycle.getX() - PIX_PER_STEP, Lightcycle.getY(), Lightcycle);
 			break;
 		case 4: 		//droite
-			head = new LengthNode(head.getX() + PIX_PER_STEP, head.getY(), head);
+			Lightcycle = new LengthNode(Lightcycle.getX() + PIX_PER_STEP, Lightcycle.getY(), Lightcycle);
 			break;
 		}
 
@@ -74,15 +74,15 @@ public class Player {
 	public boolean loosed(Player other, int maxWidth, int maxHeight)
 	{
 		//joueur se touche lui-même
-		for(LengthNode p = head.getNext(); p.getNext() != null ; p = p.getNext())
-			if(head.sameValues(p))
+		for(LengthNode p = Lightcycle.getNext(); p.getNext() != null ; p = p.getNext())
+			if(Lightcycle.sameValues(p))
 				return true;
 		//il touche un autre joueur
-		for(LengthNode p = other.getHead(); p.getNext() != null ; p = p.getNext())
-			if(head.sameValues(p))
+		for(LengthNode p = other.getLightcycle(); p.getNext() != null ; p = p.getNext())
+			if(Lightcycle.sameValues(p))
 				return true;
 		//il touche les bordures
-		if(head.getX() < 0 || head.getY() < 0 || head.getX() > maxWidth + THIKNES || head.getY() > maxHeight + THIKNES)
+		if(Lightcycle.getX() < 0 || Lightcycle.getY() < 0 || Lightcycle.getX() > maxWidth + THIKNES || Lightcycle.getY() > maxHeight + THIKNES)
 			return true;
 
 		return false;
@@ -95,9 +95,9 @@ public class Player {
 		String Time = Float.toString(Uptime);
 		
 		try {
-			String url="jdbc:mysql://chabanvpn.ovh:3306/tron?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false";
-		    String user="tron";
-		    String password="root";
+			String url="jdbc:mysql://127.0.0.1:3306/tron?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false";
+		    String user="root";
+		    String password="";
 		   
 		    Connection conn = null;
 		    conn = DriverManager.getConnection(url, user, password);
@@ -128,7 +128,7 @@ public class Player {
 	public void draw(Graphics g)
 	{
 		g.setColor(color);
-		LengthNode p = head;
+		LengthNode p = Lightcycle;
 		for(;p != null; p=p.getNext()) {
 			g.fillRect(p.getX(), p.getY(), THIKNES, THIKNES);	//tous les joueurs
 		}
