@@ -1,2 +1,1 @@
-# Rattrapage-Java
-Rattrapage du Projet Java Tron
+Jeu java pour le rattrapage !
