@@ -13,10 +13,10 @@ public class GameLogic {
 	private Color colorP1, colorP2;
 	
 	//Coordonnées de départ des joueurs
-	private int P1StartX = 900;
-	private int P1StartY = 400;
-	private int P2StartX = 300;
-	private int P2StartY = 400;
+	private int P1StartX = 150;
+	private int P1StartY = 200;
+	private int P2StartX = 450;
+	private int P2StartY = 200;
 
 	public GameLogic(int maxWidth, int maxHeight)
 	{

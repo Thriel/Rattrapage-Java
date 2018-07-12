@@ -23,7 +23,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 
 	private GameLogic logic;
 	
-	public static final int W = 1200, H = 800;
+	public static final int W = 600, H = 400;
 
 
 	
