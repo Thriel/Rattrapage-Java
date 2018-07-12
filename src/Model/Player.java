@@ -103,7 +103,7 @@ public class Player {
 		    conn = DriverManager.getConnection(url, user, password);
 		    System.out.println("[SQL] - Connecté à la BDD!");
 		    
-		    CallableStatement cStmt = conn.prepareCall("{call add_game(?,?)}");
+		    CallableStatement cStmt = conn.prepareCall("{call add_game(?, ?)}");
 		    cStmt.setString(1, this.getName());
 		    cStmt.setString(2, Time);
 		    cStmt.execute();
